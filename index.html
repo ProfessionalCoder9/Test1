@@ -1,84 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Avoid the Asteroids!</title>
-	<style>
-		canvas {
-			border: 1px solid black;
-		}
-	</style>
+  <title>My Game Home Screen</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 100px;
+    }
+    
+    h1 {
+      font-size: 48px;
+      margin-bottom: 30px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 24px;
+      background-color: #ff6600;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #ff8533;
+    }
+  </style>
 </head>
 <body>
-	<canvas id="game-canvas" width="500" height="500"></canvas>
-	<script>
-		// Initialize the game canvas and variables
-		var canvas = document.getElementById("game-canvas");
-		var ctx = canvas.getContext("2d");
-		var playerX = canvas.width/2;
-		var playerY = canvas.height/2;
-		var playerSize = 20;
-		var asteroidX = canvas.width/4;
-		var asteroidY = canvas.height/4;
-		var asteroidSize = 40;
-		var asteroidSpeed = 3;
-		var score = 0;
-		var gameOver = false;
-		
-		// Draw the player and the asteroid on the canvas
-		function draw() {
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			ctx.fillStyle = "blue";
-			ctx.fillRect(playerX - playerSize/2, playerY - playerSize/2, playerSize, playerSize);
-			ctx.fillStyle = "red";
-			ctx.fillRect(asteroidX - asteroidSize/2, asteroidY - asteroidSize/2, asteroidSize, asteroidSize);
-			ctx.font = "20px Arial";
-			ctx.fillText("Score: " + score, 10, 30);
-		}
-		
-		// Move the player and the asteroid
-		function update() {
-			if (gameOver) {
-				return;
-			}
-			if (asteroidX > playerX) {
-				asteroidX -= asteroidSpeed;
-			} else {
-				asteroidX += asteroidSpeed;
-			}
-			if (asteroidY > playerY) {
-				asteroidY -= asteroidSpeed;
-			} else {
-				asteroidY += asteroidSpeed;
-			}
-			// Check for collision between the player and the asteroid
-			var distance = Math.sqrt(Math.pow(playerX - asteroidX, 2) + Math.pow(playerY - asteroidY, 2));
-			if (distance < playerSize/2 + asteroidSize/2) {
-				gameOver = true;
-				alert("Game over! Your score was " + score + ".");
-			}
-		}
-		
-		// Handle key presses to move the player
-		document.addEventListener("keydown", function(event) {
-			if (event.key === "ArrowLeft") {
-				playerX -= 10;
-			} else if (event.key === "ArrowRight") {
-				playerX += 10;
-			} else if (event.key === "ArrowUp") {
-				playerY -= 10;
-			} else if (event.key === "ArrowDown") {
-				playerY += 10;
-			}
-			// Update the score when
-// Create the game loop
-function gameLoop() {
-  clearCanvas();
-  update();
-  draw();
+  <h1>Welcome to My Game</h1>
+  <button onclick="startGame()">Start Game</button>
   
-  // Request to loop again
-  requestAnimationFrame(gameLoop);
-}
-
-// Start the game loop
-gameLoop();
+  <script>
+    function startGame() {
+      // Add logic to start the game
+      console.log("Game started!");
+    }
+  </script>
+</body>
+</html>
